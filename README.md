@@ -4,9 +4,11 @@ internet via weak links in the periphery of the available cellular networks.
 The application use a statistical mean modal, with received signal strength indicator (RSSI) as link metric, to predict the quality of available cellular links, and ultimately to decide which link to use to send the next packet.
 The idea is to investigate if using ad-hoc networking between a couple of intermittently available cellular links will yield a better data delivery rate than using any one of these links.
 
+# download
+Download a file "pla_mean_modal.sh" which incorporates statistical mean modal and keep it in the directory of your choice. Then in your directory create a folder called "PLA".
+
 # setup
-The sensor network gateway incorporates a Linux based script (pla_mean_modal.sh), which consists of the statistical mean model.
-The cellular modem should be first inserted and the network ports should be detected and identified.
+Before starting up, first insert at least two cellular modems to detect the network ports and notify them.
 
 # start-up
 To start to collect RSSI values and predict the quality of the available cellular link, the script is executed by
