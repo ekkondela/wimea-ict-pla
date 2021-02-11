@@ -11,8 +11,10 @@ Cellular modem should be inserted and network ports shoul be notified.
 # start-up
 To start to collect RSSI values and predict the quality of the available cellular link, the script is executed by
 Linux command: "sudo ./pla_mean_modal.sh s1 s2 s3 s4"
-    - s1 indicates usb-port eg. ttyUSB0 
-    - s2 indicates usb-port eg. ttyUSB1
-    - s3 indicates number of RSSI samples eg. 10
-    - s4 inducates time-window eg 10secs
+This indictes that:
+s1 - usb-port eg. ttyUSB0 
+s2 - indicates usb-port eg. ttyUSB1
+s3 - indicates number of RSSI samples eg. 10
+s4 - inducates time-window eg 10secs
+
 For examples: "sudo ./pla_mean_modal.sh ttyUSB0 ttyUSB1, 10 10" 
