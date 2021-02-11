@@ -5,8 +5,8 @@ The application use a statistical mean modal, with received signal strength indi
 The idea is to investigate if using ad-hoc networking between a couple of intermittently available cellular links will yield a better data delivery rate than using any one of these links.
 
 # setup
-The sensor network gateway incorporates a Linux based script (pla_mean_modal.sh), which consists of the proposed statistical mean model as described below.
-Cellular modem should be inserted and network ports shoul be notified.
+The sensor network gateway incorporates a Linux based script (pla_mean_modal.sh), which consists of the statistical mean model.
+The cellular modem should be first inserted and the network ports should be detected and identified.
 
 # start-up
 To start to collect RSSI values and predict the quality of the available cellular link, the script is executed by
@@ -17,4 +17,4 @@ s2 - indicates usb-port eg. ttyUSB1
 s3 - indicates number of RSSI samples eg. 10
 s4 - inducates time-window eg 10secs
 
-For examples: "sudo ./pla_mean_modal.sh ttyUSB0 ttyUSB1, 10 10" 
+For examples: sudo ./pla_mean_modal.sh ttyUSB0 ttyUSB1 10 10 
