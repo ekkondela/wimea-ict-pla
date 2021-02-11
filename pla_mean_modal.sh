@@ -26,7 +26,7 @@ wrmodem1 () {
     #log "=== logger started: $BASHPID"
     while true ; do
         if read ; then
-            echo $REPLY | grep '+CSQ:' | awk -F'[ , ]+' '/+CSQ/{c=($2*2)-113} END {print c}' >> ./Data/arrRS1.dat
+            echo $REPLY | grep '+CSQ:' | awk -F'[ , ]+' '/+CSQ/{c=($2*2)-113} END {print c}' >> ./PLA/arrRS1.dat
             echo $REPLY | grep '+CSQ:' | awk -F'[ , ]+' '/+CSQ/{c=($2*2)-113} END {print c}' >> $LOGFILE1
         fi
     done
@@ -45,7 +45,7 @@ wrmodem2 () {
     #log "=== logger started: $BASHPID"
     while true ; do
         if read ; then
-            echo $REPLY | grep '+CSQ:' | awk -F'[ , ]+' '/+CSQ/{c=($2*2)-113} END {print c}' >> ./Data/arrRS2.dat
+            echo $REPLY | grep '+CSQ:' | awk -F'[ , ]+' '/+CSQ/{c=($2*2)-113} END {print c}' >> ./PLA/arrRS2.dat
             echo $REPLY | grep '+CSQ:' | awk -F'[ , ]+' '/+CSQ/{c=($2*2)-113} END {print c}' >> $LOGFILE2
         fi
     done
