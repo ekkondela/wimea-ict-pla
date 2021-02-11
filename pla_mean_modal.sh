@@ -13,7 +13,7 @@ LOGFILE1=./PLA/link_RS1.dat
 LOGFILE2=./PLA/link_RS2.dat
 ARR_RS1=./PLA/arr_RS1.dat
 ARR_RS2=./PLA/arr_RS2.dat
-MAINFILE=./PLA/rs_mean_modal.dat
+MAINFILE=./PLA/pla_mean_modal.dat
 
 # first modem
 wrmodem1 () {
