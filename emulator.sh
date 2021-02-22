@@ -119,44 +119,44 @@ do
       echo "|Routing:" | tr '\n' ' ' >> $MAINFILE
       echo "|Routing:" >> $MAINFILE
      
-      #if [[ ${RS_MEAN1%.*} -gt -86 ]] && [[ ${RS_MEAN2%.*} -gt -86 ]] && [[ ${RS_INTERVAL1%.*} -gt ${RS_INTERVAL2%.*} ]]
-      #then
-      #  echo "0" | tr '\n' ' ' >> $MAINFILE 
-      #  echo "1" >> $MAINFILE 
-      #elif [[ ${RS_MEAN1%.*} -gt -86 ]] && [[ ${RS_MEAN2%.*} -gt -86 ]] && [[ ${RS_INTERVAL1%.*} -lt ${RS_INTERVAL2%.*} ]]
-      #then
-      #  echo "1" | tr '\n' ' ' >> $MAINFILE 
-      #  echo "0" >> $MAINFILE    
-      #elif [[ ${RS_MEAN1%.*} -le -86 ]] && [[ ${RS_MEAN2%.*} -le -86 ]] && [[ ${RS_INTERVAL1%.*} -gt ${RS_INTERVAL2%.*} ]]
-      #then
-      #  echo "0" | tr '\n' ' '>> $MAINFILE 
-      #  echo "10" >> $MAINFILE    
-      #elif [[ ${RS_MEAN1%.*} -le -86 ]] && [[ ${RS_MEAN2%.*} -le -86 ]] && [[ ${RS_INTERVAL1%.*} -le ${RS_INTERVAL2%.*} ]]
-      #then
-      #  echo "10" | tr '\n' ' ' >> $MAINFILE 
-      #  echo "0"  >> $MAINFILE 
-      ##  
-      #elif [[ ${RS_MEAN1%.*} -gt -86 ]] && [[ ${RS_MEAN2%.*} -le -86 ]] && [[ ${RS_INTERVAL1%.*} -gt ${RS_INTERVAL2%.*} ]]
-      #then
-      #  echo "0" | tr '\n' ' ' >> $MAINFILE 
-      #  echo "10" >> $MAINFILE    
-      #elif [[ ${RS_MEAN1%.*} -gt -86 ]] && [[ ${RS_MEAN2%.*} -le -86 ]] && [[ ${RS_INTERVAL1%.*} -le ${RS_INTERVAL2%.*} ]]
-      #then
-      #  echo "1" | tr '\n' ' ' >> $MAINFILE 
-      #  echo "0" >> $MAINFILE 
-      ##
-      #elif [[ ${RS_MEAN1%.*} -le -86 ]] && [[ ${RS_MEAN2%.*} -gt -86 ]] && [[ ${RS_INTERVAL1%.*} -gt ${RS_INTERVAL2%.*} ]]
-      #then
-      #  echo "0" | tr '\n' ' ' >> $MAINFILE 
-      #  echo "1" >> $MAINFILE    
-      #elif [[ ${RS_MEAN1%.*} -le -86 ]] && [[ ${RS_MEAN2%.*} -gt -86 ]] && [[ ${RS_INTERVAL1%.*} -le ${RS_INTERVAL2%.*} ]]
-      #then
-      #  echo "10" | tr '\n' ' ' >> $MAINFILE 
-      #  echo "0" >> $MAINFILE         
-      #else
-      #  echo "Undefined" | tr '\n' ' ' >> $MAINFILE 
-      #  echo "Undefined" >> $MAINFILE    
-      #fi
+      if [[ ${RS_MEAN1%.*} -gt -86 ]] && [[ ${RS_MEAN2%.*} -gt -86 ]] && [[ ${RS_INTERVAL1%.*} -gt ${RS_INTERVAL2%.*} ]]
+      then
+        echo "0" | tr '\n' ' ' >> $MAINFILE 
+        echo "1" >> $MAINFILE 
+      elif [[ ${RS_MEAN1%.*} -gt -86 ]] && [[ ${RS_MEAN2%.*} -gt -86 ]] && [[ ${RS_INTERVAL1%.*} -lt ${RS_INTERVAL2%.*} ]]
+      then
+        echo "1" | tr '\n' ' ' >> $MAINFILE 
+        echo "0" >> $MAINFILE    
+      elif [[ ${RS_MEAN1%.*} -le -86 ]] && [[ ${RS_MEAN2%.*} -le -86 ]] && [[ ${RS_INTERVAL1%.*} -gt ${RS_INTERVAL2%.*} ]]
+      then
+        echo "0" | tr '\n' ' '>> $MAINFILE 
+        echo "1" >> $MAINFILE    
+      elif [[ ${RS_MEAN1%.*} -le -86 ]] && [[ ${RS_MEAN2%.*} -le -86 ]] && [[ ${RS_INTERVAL1%.*} -le ${RS_INTERVAL2%.*} ]]
+      then
+        echo "1" | tr '\n' ' ' >> $MAINFILE 
+        echo "0"  >> $MAINFILE 
+      #  
+      elif [[ ${RS_MEAN1%.*} -gt -86 ]] && [[ ${RS_MEAN2%.*} -le -86 ]] && [[ ${RS_INTERVAL1%.*} -gt ${RS_INTERVAL2%.*} ]]
+      then
+        echo "0" | tr '\n' ' ' >> $MAINFILE 
+        echo "1" >> $MAINFILE    
+      elif [[ ${RS_MEAN1%.*} -gt -86 ]] && [[ ${RS_MEAN2%.*} -le -86 ]] && [[ ${RS_INTERVAL1%.*} -le ${RS_INTERVAL2%.*} ]]
+      then
+        echo "1" | tr '\n' ' ' >> $MAINFILE 
+        echo "0" >> $MAINFILE 
+      #
+      elif [[ ${RS_MEAN1%.*} -le -86 ]] && [[ ${RS_MEAN2%.*} -gt -86 ]] && [[ ${RS_INTERVAL1%.*} -gt ${RS_INTERVAL2%.*} ]]
+      then
+        echo "0" | tr '\n' ' ' >> $MAINFILE 
+        echo "1" >> $MAINFILE    
+      elif [[ ${RS_MEAN1%.*} -le -86 ]] && [[ ${RS_MEAN2%.*} -gt -86 ]] && [[ ${RS_INTERVAL1%.*} -le ${RS_INTERVAL2%.*} ]]
+      then
+        echo "10" | tr '\n' ' ' >> $MAINFILE 
+        echo "0" >> $MAINFILE         
+      else
+        echo "Undefined" | tr '\n' ' ' >> $MAINFILE 
+        echo "Undefined" >> $MAINFILE    
+      fi
 
 
       j=$(($j+10))
