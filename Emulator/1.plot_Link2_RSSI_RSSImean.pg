@@ -1,0 +1,27 @@
+#!/usr/bin/gnuplot
+reset
+clear
+#set key off
+
+unset multiplot
+set xdata time
+#set style data lines  
+set timefmt "%Y-%m-%d %H:%M:%S"
+set format x "%M:\n%S"
+set xlabel "Time (seconds)"
+set ylabel "RSSI (dBm)"
+set ytics
+set tics out
+set autoscale y
+set xrange ["2021-02-15 21:04:56":"2021-02-15 21:06:28"]
+#set xrange ["1":"2"]
+set yrange ["-150":"-51"]
+set grid
+set terminal pngcairo
+set output '1.plot_Link2_RSSI_RSSImean.png'
+#set title "Variation of Actual RSSI values with Predicted RSSI mean"
+set style fill transparent solid 0.2 noborder
+plot 'statistics.dat' using 1:5 with linespoints lt 1 pt 7 title 'Predicted RSSI Mean';
+########################################################################################
+
+

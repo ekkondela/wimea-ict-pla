@@ -1,0 +1,108 @@
+#!/usr/bin/gnuplot
+reset
+clear
+#set key off
+
+unset multiplot
+set xdata time
+set style data lines  
+set timefmt "%Y-%m-%d %H:%M:%S"
+#set timefmt "%H:%M:%S"
+#set format x "%m-%d\n%H:%M"
+#set format x "%H:%M:\n%S"
+set format x "%M:\n%S"
+
+set xlabel "Time (seconds) "
+set ylabel "RSSI (dBm)"
+#set y2label "Packet Loss (%)"
+#set y2label "SE(Mean)"
+set y2label "Probability"
+
+set ytics
+set y2tics nomirror
+set tics out
+set autoscale y
+set autoscale y2
+
+## Airtel
+## set xrange ["2020-05-09 12:14:23":"2020-05-09 12:24:50"]
+## set xrange ["2020-05-09 12:14:12":"2020-05-09 12:15:58"]
+set xrange ["2021-02-15 21:04:56":"2021-02-15 21:06:28"]
+
+#set yrange ["-120":"0"]
+#set y2range ["0":"100"]
+#set y2range ["0":"50"]
+
+#set style data lines 
+#set style line 1 lt 1 lw 1 pt 3 linecolor rgb "#0025ad"
+#set style line 2 lt 1 lw 1 pt 3 linecolor rgb "black"
+#set style line 3 lt 1 lw 1 pt 3 linecolor rgb "red"
+##set style line 4 lt 1 lw 1 pt 3 linecolor rgb "brown"
+##set style line 5 lc rgb 'black' pt 5   # square
+##set style line 6 lc rgb 'red' pt 7   # circle
+##set style line 3 lc rgb 'red' pt 9   # triangle
+#set style line 4 lc rgb 'red' lt 1 lw 1 pt 7 pi -1 ps 1.5
+#set style line 5 lc rgb '#007cad' lt 1 lw 1 pt 7 pi -1 ps 1.5
+#set style line 6 lc rgb 'brown' lt 1 lw 1 pt 7 pi -1 ps 1.5
+#set style line 7 lc rgb 'black' lt 1 lw 1 pt 7 pi -1 ps 1.5
+#set pointintervalbox 2
+
+set grid
+
+########################################################################################
+#set table 'lower.dat'
+#plot 'data.dat' using 1:($4) smooth cspline
+#set table 'upper.dat'
+#plot 'data.dat' using 1:($5) smooth cspline
+#set table 'upper.dat'
+#unset table
+
+#paste lower.dat upper.dat
+#plot '< python2.7 paste.py lower.dat upper.dat'
+
+#set term png background rgb "gray"
+#set term png font "10" linewidth 1
+#set terminal png size 900, 400
+
+set terminal pngcairo
+#set output '5.plot_Airtel_Vodacom_Probability.png'
+set output '5.plot_Link1_Link2_Probability_new3.png'
+#set title "Variation of 95% Prediction Interval, Predicted RSSI mean with Probability"
+set yrange ["-150":"-51"]
+set y2range ["0":"1"]
+set terminal png size 900, 400
+###############################################################
+set style fill transparent solid 0.2 noborder
+#plot '< python2.7 paste.py lower.dat upper.dat' 
+#plot 'plot_AirtelRSSIPI.dat' using 1:5:6 with filledcurves title '95% confidence',\
+# 'plot_AirtelRSSIPI.dat' using 1:3 with lines lt 1 smooth cspline title 'Predicted Airtel RSSI Mean' #,\
+ #'' using 1:3 with points lt 1 pt 7 ps 1.5 lw 3 title 'Actual RSSI'
+
+### RSSI vs SEmean
+### ==============
+#plot 'plot_AirtelRSSIPI.dat' using 1:5:6 with filledcurves title 'Link1: 95% Prediction Interval',\
+ 'plot_AirtelRSSIPI.dat' using 1:3 axes x1y1 with linespoints lt 1 pt 7 title 'Link1:Predicted RSSI Mean',\
+ 'plot_AirtelSQ_RSSI.dat' using 1:5 axes x1y2 with linespoints lt 2 pt 7 title 'Link1: Probability of RSSI Value',\
+ 'plot_VodacomRSSIPI.dat' using 1:5:6 with filledcurves title 'Link2: 95% Prediction Interval',\
+ 'plot_VodacomRSSIPI.dat' using 1:3 axes x1y1 with linespoints lt 4 pt 7 title 'Link2: Predicted RSSI Mean',\
+ 'plot_VodacomSQ_RSSI.dat' using 1:5 axes x1y2 with linespoints lt 3 pt 7 title 'Link2: Probability of RSSI Value';
+ 
+plot 'statistics.dat' using 1:16:17 with filledcurves title 'Link1: 95% Prediction Interval',\
+ 'statistics.dat' using 1:4 axes x1y1 with linespoints lt 1 pt 7 title 'Link1:Predicted RSSI Mean',\
+ 'statistics.dat' using 1:19:20 with filledcurves title 'Link2: 95% Prediction Interval',\
+ 'statistics.dat' using 1:5 axes x1y1 with linespoints lt 2 pt 7 title 'Link2: Predicted RSSI Mean',\
+ 'statistics.dat' using 1:22 axes x1y2 with linespoints lt 3 pt 7 title 'RSSI Probability of Link1',\
+ 'statistics.dat' using 1:23 axes x1y2 with linespoints lt 4 pt 7 title 'RSSI Probability of Link2'; 
+
+ #,\
+ #'' using 1:3 with points lt 1 pt 7 ps 1.5 lw 3 title 'Actual RSSI'
+  
+
+#plot 'plot_AirtelSQ_RSSI.dat' using 1:4 with linespoints lt 1 pt 7 ps 1.5 lw 3 title 'Actual RSSI';
+
+#plot 'plot_AirtelSQ_RSSI.dat' using 1:4 with linespoints lt 2 pt 6 ps 1.5 lw 2 title 'Actual RSSI', 'plot_AirtelRSSIPI.dat' using 1:3 with points lt 1 pt 7 ps 1.5 lw 3 title 'Predicted RSSI Mean';
+
+
+########################################################################################
+
+
