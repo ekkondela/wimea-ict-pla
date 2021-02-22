@@ -22,7 +22,7 @@ s4 - inducates time-window eg 10secs
 For examples: sudo ./pla_mean_modal.sh ttyUSB0 ttyUSB1 10 10 
 
 # emulator
-Emulator is a version in which the modems are replaced by random number generators providing readings following the probability distribution. To start with you have to run it as:
+Emulator is a version in which the modems are replaced by random number generators providing readings following the probability distribution. Download a script emulator.sh then in your directory create a folder called "Emulator". To start with you have to run it as:
 sudo ./emulator.sh s1 s2, where s1 represents sampling numbers and s2 represents time window.
 
 For example: sudo ./emulator.sh 10 10
